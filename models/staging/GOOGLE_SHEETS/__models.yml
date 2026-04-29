@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_GOOGLE_SHEETS__BUDGET
+    config:
+      contract:
+        enforced: true
+    description: "Presupuesto de ventas gestionado desde Google Sheets."
+    columns:
+      - name: budget_month        # Antes: month
+        data_type: date
+      - name: product_id
+        data_type: varchar
+      - name: quantity
+        data_type: integer       # Cambiado a integer (más preciso)
+      - name: date_load          # Antes: _fivetran_synced
+        data_type: timestamp_ntz
+      - name: row_id             # Antes: _row
+        data_type: integer       # Cambiado a integer

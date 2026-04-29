@@ -1,0 +1,142 @@
+version: 2
+
+models:
+  - name: stg_POSTGRE_DB__ADDRESSES
+    config:
+      contract:
+        enforced: true
+    description: "Staging model for addresses from PostgreSQL."
+    columns:
+      - name: address_id
+        data_type: varchar
+      - name: zipcode
+        data_type: varchar
+      - name: country
+        data_type: varchar
+      - name: address
+        data_type: varchar
+      - name: state
+        data_type: varchar
+      - name: is_deleted
+        data_type: boolean
+      - name: date_load
+        data_type: timestamp_ntz
+
+  - name: stg_POSTGRE_DB__PRODUCTS
+    config:
+      contract:
+        enforced: true
+    description: "Staging model for products from PostgreSQL."
+    columns:
+      - name: product_id
+        data_type: varchar
+      - name: name
+        data_type: varchar
+      - name: price_usd
+        data_type: number
+      - name: inventory_quantity
+        data_type: number
+      - name: is_deleted
+        data_type: boolean
+      - name: date_load
+        data_type: timestamp_ntz
+
+  - name: stg_POSTGRE_DB__ORDERS
+    config:
+      contract:
+        enforced: true
+    description: "Staging model for orders from PostgreSQL."
+    columns:
+      - name: order_id
+        data_type: varchar
+      - name: user_id
+        data_type: varchar
+      - name: address_id
+        data_type: varchar
+      - name: promo_id
+        data_type: varchar
+      - name: tracking_id
+        data_type: varchar
+      - name: shipping_service
+        data_type: varchar
+      - name: status
+        data_type: varchar
+      - name: shipping_cost_usd
+        data_type: number
+      - name: order_cost_usd
+        data_type: number
+      - name: order_total_usd
+        data_type: number
+      - name: created_at_utc
+        data_type: timestamp_ntz
+      - name: estimated_delivery_at_utc
+        data_type: timestamp_ntz
+      - name: delivered_at_utc
+        data_type: timestamp_ntz
+      - name: is_deleted
+        data_type: boolean
+      - name: date_load
+        data_type: timestamp_ntz
+
+  - name: stg_POSTGRE_DB__ORDERITEMS
+    config:
+      contract:
+        enforced: true
+    description: "Staging model for order items from PostgreSQL."
+    columns:
+      - name: order_id
+        data_type: varchar
+      - name: product_id
+        data_type: varchar
+      - name: quantity
+        data_type: number
+      - name: is_deleted
+        data_type: boolean
+      - name: date_load
+        data_type: timestamp_ntz
+
+  - name: stg_POSTGRE_DB__PROMOS
+    config:
+      contract:
+        enforced: true
+    description: "Staging model for promos from PostgreSQL."
+    columns:
+      - name: promo_id
+        data_type: varchar
+      - name: discount_usd
+        data_type: number
+      - name: status
+        data_type: varchar
+      - name: is_deleted
+        data_type: boolean
+      - name: date_load
+        data_type: timestamp_ntz
+
+  - name: stg_POSTGRE_DB__USER
+    config:
+      contract:
+        enforced: true
+    description: "Staging model for users from PostgreSQL."
+    columns:
+      - name: user_id
+        data_type: varchar
+      - name: address_id
+        data_type: varchar
+      - name: first_name
+        data_type: varchar
+      - name: last_name
+        data_type: varchar
+      - name: email
+        data_type: varchar
+      - name: phone_number
+        data_type: varchar
+      - name: total_orders
+        data_type: number
+      - name: created_at_utc
+        data_type: timestamp_ntz
+      - name: updated_at_utc
+        data_type: timestamp_ntz
+      - name: is_deleted
+        data_type: boolean
+      - name: date_load
+        data_type: timestamp_ntz
